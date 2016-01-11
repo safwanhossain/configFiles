@@ -1,1 +1,6 @@
-Contains config files for vim, bash, and tmux on personal and UofT machines
+Contains config files for vim, bash, and tmux.
+
+To use, put .bashrc and .tmux.conf in ~ folder
+Make a .vim folder in ~directory. Make a folder called "colors" in ~/.vim
+Put vimrc in the "~/.vim" folder and put wellsokai.vim in "~/.vim/colors" folder
+
