@@ -13,9 +13,9 @@ esac
 HISTCONTROL=ignoreboth
 
 #Alias Commands
-alias sshUg134="ssh ug134.eecg.utoronto.ca"
-alias sshUg135="ssh ug135.eecg.utoronto.ca"
-alias sshUg136="ssh ug136.eecg.utoronto.ca"
+alias sshUg170="ssh ug170.eecg.utoronto.ca"
+alias sshUg171="ssh ug171.eecg.utoronto.ca"
+alias sshUg172="ssh ug172.eecg.utoronto.ca"
 
 alias _grep="grep -nh"
 
