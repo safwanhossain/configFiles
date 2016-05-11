@@ -13,9 +13,9 @@ esac
 HISTCONTROL=ignoreboth
 
 #Alias Commands
-alias sshUg170="ssh ug170.eecg.utoronto.ca"
-alias sshUg171="ssh ug171.eecg.utoronto.ca"
-alias sshUg172="ssh ug172.eecg.utoronto.ca"
+alias sshUg134="ssh ug134.eecg.utoronto.ca"
+alias sshUg135="ssh ug135.eecg.utoronto.ca"
+alias sshUg136="ssh ug136.eecg.utoronto.ca"
 
 alias _grep="grep -nh"
 
@@ -71,7 +71,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -127,6 +127,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Vim fix for backspace and delete
 stty erase ^?
+
+# Terminal Colors
 export TERM=xterm-256color
+
+# Java Runtime
+export JAVA_HOME='/home/hossa120/java/jdk1.8.0_65'
+PATH=.:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
 
