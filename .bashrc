@@ -12,22 +12,24 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-#Alias Commands
-alias sshUg134="ssh ug134.eecg.utoronto.ca"
-alias sshUg135="ssh ug135.eecg.utoronto.ca"
-alias sshUg136="ssh ug136.eecg.utoronto.ca"
-
-alias _grep="grep -nh"
-
+###### Alias commands
+alias _grep="grep -nri"
 alias _tmuxNew="tmux new -s"
 alias _tmuxKill="tmux kill-window -t"
 alias _tmuxAtt="tmux a -t"
+alias act="conda activate"
+alias ckill="conda deactivate"
+alias copy="pbcopy < "
 
 # How many directory levels you want to show. Default(all) is 0
 PROMPT_DIRTRIM=1
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# Show colours in ls command
+export LSCOLORS="Gxfxcadxbxegedabagacad"
+alias ls='ls --color=auto'
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -70,10 +72,16 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Parse the git branch and push it to the prompt
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
+    #PS1='\[\033[01;34m\]safwan:\[\033[01;32m\]\w\[\e[00;91m\]$(parse_git_branch) \[\e[01;32m\]$:\[\e[00m\] '
+    PS1='\[\033[01;34m\]safwan:\[\033[01;32m\]\w\[\e[00;91m\] \[\e[01;32m\]$:\[\e[00m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -136,4 +144,8 @@ export TERM=xterm-256color
 # Java Runtime
 export JAVA_HOME='/home/hossa120/java/jdk1.8.0_65'
 PATH=.:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+PATH=$PATH:/opt/homebrew/bin
+PATH=$PATH:/Users/safwanhossain/opt/miniconda3/bin/
 
+# Initialize conda environment
+source /Users/safwanhossain/opt/miniconda3/etc/profile.d/conda.sh
